@@ -19,11 +19,11 @@ public class PlanetOrbit : MonoBehaviour
         public Material material;
     }
 
-    public float speed;
     public float radius;
-    public Vector3 wantedScale;
-    public float rotationSpeed;
+    public float speed;
     public Vector3 rotationDirection;
+    public float rotationSpeed;
+    public Vector3 wantedScale;
 
     float angle = 0;
 
@@ -34,6 +34,8 @@ public class PlanetOrbit : MonoBehaviour
         rotationDirection = planet.rotationAxis;
         rotationSpeed = planet.rotationSpeed;
         wantedScale = Vector3.one * planet.size;
+
+        GetComponent<MeshRenderer>().material = planet.material;
     }
 
     void Update()
@@ -49,12 +51,9 @@ public class PlanetOrbit : MonoBehaviour
         vec.x = radius * Mathf.Cos(angle);
         vec.z = radius * Mathf.Sin(angle);
 
-        transform.position = vec;
-        transform.rotation = Quaternion.Euler(0, angle, 0);
-    }
-
-    private void OnEnable()
-    {
         transform.localScale = wantedScale;
+
+        transform.position = vec;
+        transform.Rotate(rotationDirection * rotationSpeed * Time.deltaTime);
     }
 }
