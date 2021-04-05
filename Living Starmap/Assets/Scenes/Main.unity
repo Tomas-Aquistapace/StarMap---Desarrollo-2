@@ -522,22 +522,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetPrefab: {fileID: 2149268186483927733, guid: 1e021d92995344740bd5576c58afc9b0,
     type: 3}
+  material:
+  - {fileID: 2100000, guid: 92cd3655a284b2e45bf879510876ff1f, type: 2}
+  - {fileID: 2100000, guid: e9784fee67a00c04e80bf873ce2408ee, type: 2}
+  - {fileID: 2100000, guid: 0bba87f64722b2e46b497b16e12e6ac8, type: 2}
+  - {fileID: 2100000, guid: 3a2a9300059b12a44a0821d0a8035b9d, type: 2}
+  - {fileID: 2100000, guid: 3d807b9b42de7454b9c54f003f20b8e4, type: 2}
   planetData:
-  - translationRadius: 6
-    translationSpeed: 1.5
-    rotationAxis: {x: 0, y: 1, z: 0}
-    rotationSpeed: 5
-    size: 2
-    material: {fileID: 2100000, guid: 92cd3655a284b2e45bf879510876ff1f, type: 2}
-  - translationRadius: 12
-    translationSpeed: 1
-    rotationAxis: {x: 0, y: 1, z: 0}
-    rotationSpeed: 5
-    size: 4
-    material: {fileID: 2100000, guid: 0bba87f64722b2e46b497b16e12e6ac8, type: 2}
-  - translationRadius: 18
-    translationSpeed: 0.5
-    rotationAxis: {x: 0, y: 1, z: 0}
-    rotationSpeed: 5
-    size: 3
-    material: {fileID: 2100000, guid: f2530c7ce9fe9a748b8973dec09be94e, type: 2}
+  - translationRadius: 0
+    translationSpeed: 0
+    rotationAxis: {x: 0, y: 0, z: 0}
+    rotationSpeed: 0
+    size: 0
+  - translationRadius: 0
+    translationSpeed: 0
+    rotationAxis: {x: 0, y: 0, z: 0}
+    rotationSpeed: 0
+    size: 0
+  - translationRadius: 0
+    translationSpeed: 0
+    rotationAxis: {x: 0, y: 0, z: 0}
+    rotationSpeed: 0
+    size: 0
+  - translationRadius: 0
+    translationSpeed: 0
+    rotationAxis: {x: 0, y: 0, z: 0}
+    rotationSpeed: 0
+    size: 0
+  - translationRadius: 0
+    translationSpeed: 0
+    rotationAxis: {x: 0, y: 0, z: 0}
+    rotationSpeed: 0
+    size: 0
+  distance: 8

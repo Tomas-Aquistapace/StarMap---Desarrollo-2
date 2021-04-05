@@ -8,15 +8,13 @@ public class PlanetOrbit : MonoBehaviour
     [Serializable]
     public class PlanetData
     {
-        public float translationRadius;
-        public float translationSpeed;
+        [HideInInspector] public float translationRadius;
+        [HideInInspector] public float translationSpeed;
 
-        public Vector3 rotationAxis;
-        public float rotationSpeed;
+        [HideInInspector] public Vector3 rotationAxis;
+        [HideInInspector] public float rotationSpeed;
 
-        public float size = 1;
-
-        public Material material;
+        [HideInInspector] public float size = 1;
     }
 
     public float radius;
@@ -27,15 +25,21 @@ public class PlanetOrbit : MonoBehaviour
 
     float angle = 0;
 
-    public void Initialaze(PlanetData planet)
+    public void Initialaze(PlanetData planet, Material material, int i, int distance)
     {
-        radius = planet.translationRadius;
-        speed = planet.translationSpeed;
-        rotationDirection = planet.rotationAxis;
-        rotationSpeed = planet.rotationSpeed;
-        wantedScale = Vector3.one * planet.size;
+        //radius = planet.translationRadius;
+        //speed = planet.translationSpeed;
+        //rotationDirection = planet.rotationAxis;
+        //rotationSpeed = planet.rotationSpeed;
+        //wantedScale = Vector3.one * planet.size;
 
-        GetComponent<MeshRenderer>().material = planet.material;
+        radius = (i+1) * distance;
+        speed = UnityEngine.Random.Range(0.5f, 2f);
+        rotationDirection = new Vector3(0, 1, 0);
+        rotationSpeed = UnityEngine.Random.Range(1f, 4f);
+        wantedScale = Vector3.one * UnityEngine.Random.Range(1f, 8f);
+
+        GetComponent<MeshRenderer>().material = material;
     }
 
     void Update()

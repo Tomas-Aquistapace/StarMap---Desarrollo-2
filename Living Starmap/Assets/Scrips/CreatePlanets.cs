@@ -6,10 +6,12 @@ public class CreatePlanets : MonoBehaviour
 {
     public PlanetOrbit planetPrefab;
 
+    public List<Material> material;
+
     public List<PlanetOrbit.PlanetData> planetData;
-    
-    //public List<PlanetOrbit> generatedPlanets = new List<PlanetOrbit>();
-    
+
+    public int distance;
+
     void Awake()
     {
         for (int i = 0; i < planetData.Count; i++)
@@ -18,9 +20,7 @@ public class CreatePlanets : MonoBehaviour
 
             PlanetOrbit p = go.GetComponent<PlanetOrbit>();
 
-            p.Initialaze(planetData[i]);
-
-            //generatedPlanets.Add(p);
+            p.Initialaze(planetData[i], material[i], i, distance);
         }
     }
 }
