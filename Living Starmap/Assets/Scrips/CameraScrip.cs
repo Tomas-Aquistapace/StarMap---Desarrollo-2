@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraScrip : MonoBehaviour
 {
-
     public List<GameObject> planets;
 
     private int select = 0;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour
 {
-
     public float speed;
     public float turnSpeed;
 

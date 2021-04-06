@@ -1,13 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlanetOrbit : MonoBehaviour
 {
     [Serializable]
     public class PlanetData
     {
+        public string planetName;
+
         [HideInInspector] public float translationRadius;
         [HideInInspector] public float translationSpeed;
 
@@ -17,29 +18,34 @@ public class PlanetOrbit : MonoBehaviour
         [HideInInspector] public float size = 1;
     }
 
+    //public string name;
     public float radius;
     public float speed;
     public Vector3 rotationDirection;
     public float rotationSpeed;
     public Vector3 wantedScale;
 
-    float angle = 0;
+    public GameObject orbitArround;
 
-    public void Initialaze(PlanetData planet, Material material, int i, int distance)
+    //private float angle = 0;
+    private Color planetColor;
+
+    public void Initialaze(PlanetData planet, Material material, int distance, GameObject center)
     {
-        //radius = planet.translationRadius;
-        //speed = planet.translationSpeed;
-        //rotationDirection = planet.rotationAxis;
-        //rotationSpeed = planet.rotationSpeed;
-        //wantedScale = Vector3.one * planet.size;
-
-        radius = (i+1) * distance;
-        speed = UnityEngine.Random.Range(0.5f, 2f);
+        radius = distance;
+        speed = Random.Range(15f, 25f);
         rotationDirection = new Vector3(0, 1, 0);
-        rotationSpeed = UnityEngine.Random.Range(1f, 4f);
-        wantedScale = Vector3.one * UnityEngine.Random.Range(1f, 8f);
+        rotationSpeed = Random.Range(2f, 4f);
+        wantedScale = Vector3.one * Random.Range(1f, 8f);
 
         GetComponent<MeshRenderer>().material = material;
+        GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
+        planetColor = GetComponent<MeshRenderer>().material.color;
+
+        gameObject.name = planet.planetName;
+        gameObject.transform.position = new Vector3(center.transform.position.x + radius, center.transform.position.y, center.transform.position.z);
+
+        orbitArround = center;
     }
 
     void Update()
@@ -49,15 +55,34 @@ public class PlanetOrbit : MonoBehaviour
 
     void OrbitArround()
     {
-        Vector3 vec = Vector3.zero;
-
-        angle += speed * Time.deltaTime;
-        vec.x = radius * Mathf.Cos(angle);
-        vec.z = radius * Mathf.Sin(angle);
+        Vector3 vec = orbitArround.transform.position;
+        //
+        //angle += speed * Time.deltaTime;
+        //vec.x = radius * Mathf.Cos(angle);
+        //vec.z = radius * Mathf.Sin(angle);
 
         transform.localScale = wantedScale;
 
-        transform.position = vec;
+        //transform.position = vec;
+        transform.RotateAround(vec, Vector3.up, speed * Time.deltaTime);
         transform.Rotate(rotationDirection * rotationSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            planetColor.a = 0.4f;
+            GetComponent<MeshRenderer>().material.color = planetColor;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (planetColor.a < 1)
+        {
+            planetColor.a = 1f;
+            GetComponent<MeshRenderer>().material.color = planetColor;
+        }
     }
 }
