@@ -312,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 20.901001, y: 42.463, z: 0}
 --- !u!114 &302869089
 MonoBehaviour:
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4016885670465544, guid: 61954f4a94623b642b25d1e38295a31a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4016885670465544, guid: 61954f4a94623b642b25d1e38295a31a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -440,6 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562735251}
   - component: {fileID: 1562735252}
+  - component: {fileID: 1562735253}
   m_Layer: 0
   m_Name: Instancing
   m_TagString: Untagged
@@ -514,7 +515,33 @@ MonoBehaviour:
     size: 0
   distance: 8
   orbitArround: {fileID: 298370205}
-  trailMat: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &1562735253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562735250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc7616bec5845e4c98ce504330536b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePref: {fileID: 6809561533506948101, guid: 63074a7d81fd3154d8196cf5d47262ea,
+    type: 3}
+  newPosition: {x: 0, y: -20, z: 0}
+  newScale: 20
+  asteroidsPref:
+  - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
+  - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
+  - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
+  newAsteroids:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &2940367750216637926
 PrefabInstance:
   m_ObjectHideFlags: 0

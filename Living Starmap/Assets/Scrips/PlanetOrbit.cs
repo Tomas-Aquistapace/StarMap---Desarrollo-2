@@ -23,11 +23,10 @@ public class PlanetOrbit : MonoBehaviour
     public float speed;
     public Vector3 rotationDirection;
     public float rotationSpeed;
-    public Vector3 wantedScale;
+    //public Vector3 wantedScale;
 
     public GameObject orbitArround;
-
-    //private float angle = 0;
+    
     private Color planetColor;
 
     public void Initialaze(PlanetData planet, Material material, int distance, GameObject center)
@@ -36,7 +35,7 @@ public class PlanetOrbit : MonoBehaviour
         speed = Random.Range(15f, 25f);
         rotationDirection = new Vector3(0, 1, 0);
         rotationSpeed = Random.Range(2f, 4f);
-        wantedScale = Vector3.one * Random.Range(1f, 8f);
+        transform.localScale = Vector3.one * Random.Range(1f, 8f);
 
         GetComponent<MeshRenderer>().material = material;
         GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
@@ -56,15 +55,8 @@ public class PlanetOrbit : MonoBehaviour
     void OrbitArround()
     {
         Vector3 vec = orbitArround.transform.position;
-        //
-        //angle += speed * Time.deltaTime;
-        //vec.x = radius * Mathf.Cos(angle);
-        //vec.z = radius * Mathf.Sin(angle);
-
-        transform.localScale = wantedScale;
-
-        //transform.position = vec;
-        transform.RotateAround(vec, Vector3.up, speed * Time.deltaTime);
+        
+        transform.RotateAround(vec, Vector3.down, speed * Time.deltaTime);
         transform.Rotate(rotationDirection * rotationSpeed * Time.deltaTime);
     }
 

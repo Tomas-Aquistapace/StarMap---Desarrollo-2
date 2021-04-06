@@ -13,16 +13,12 @@ public class CreatePlanets : MonoBehaviour
     [Header ("General Data")]
     public int distance;
     public GameObject orbitArround;
-    public Material trailMat;
 
     void Awake()
     {
         for (int i = 0; i < planetData.Count; i++)
         {
             GameObject go = Instantiate(planetPrefab).gameObject;
-
-            go.AddComponent<TrailRenderer>();
-            go.GetComponent<TrailRenderer>().material = trailMat;
 
             PlanetOrbit p = go.GetComponent<PlanetOrbit>();
 
