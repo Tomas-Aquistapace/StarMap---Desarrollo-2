@@ -344,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1436479896, guid: 61954f4a94623b642b25d1e38295a31a, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1488096175762158, guid: 61954f4a94623b642b25d1e38295a31a, type: 3}
       propertyPath: m_Name
@@ -532,9 +532,9 @@ MonoBehaviour:
   newPosition: {x: 0, y: -20, z: 0}
   newScale: 20
   asteroidsPref:
-  - {fileID: 151664, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
-  - {fileID: 141316, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
-  - {fileID: 130102, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
+  - {fileID: -1163060117463434463, guid: fa49e460baf435b4780da7196c2ab473, type: 3}
+  - {fileID: -3415826528578026071, guid: 84cc3cd234dfc9d4d9d2e92c0eb0af75, type: 3}
+  - {fileID: 531779197474452111, guid: 04d0bf4be9447154188d86f6e3b8dce9, type: 3}
   newAsteroids:
   - {fileID: 0}
   - {fileID: 0}

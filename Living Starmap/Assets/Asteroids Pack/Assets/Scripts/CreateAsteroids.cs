@@ -10,22 +10,25 @@ public class CreateAsteroids : MonoBehaviour
     public float newScale;
 
     [Header("Asteroids Data")]
-    public List<GameObject> asteroidsPref;
+    public List<AsteroidsController> asteroidsPref;
     public List<GameObject> newAsteroids;
+
+    GameObject plane;
 
     void Awake()
     {
-        GameObject plane = Instantiate(planePref).gameObject;
+        plane = Instantiate(planePref).gameObject;
         plane.transform.position = newPosition;
-        plane.transform.localScale = transform.localScale * newScale;
+        plane.transform.localScale = new Vector3(transform.localScale.x * newScale, 1, transform.localScale.z * newScale);
+        plane.name = "AsteroidsLimit";
 
         for (int i = 0; i < newAsteroids.Count; i++)
         {
             GameObject ast = Instantiate(asteroidsPref[Random.Range(0, asteroidsPref.Count)]).gameObject;
 
-            ast.transform.position = new Vector3((Random.Range(plane.transform.localScale.x * -1, plane.transform.localScale.x)),
-                                                 (Random.Range(40, 60)),
-                                                 (Random.Range(plane.transform.localScale.z * -1, plane.transform.localScale.z)));
+            AsteroidsController p = ast.GetComponent<AsteroidsController>();
+
+            p.Initialize(plane, i);
 
             newAsteroids[i] = ast;
         }
